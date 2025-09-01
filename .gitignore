@@ -1,0 +1,5 @@
+# Ignorar o diretório de arquivos de objeto
+obj/
+
+# Ignorar o executável final
+pointers_demo

@@ -5,7 +5,7 @@
  */
 int main() {
     printf("=====================================================\n");
-    printf("Trabalho sobre Ponteiros em Linguagem C\n");
+    printf("Trabalho sobre Ponteiros com a Linguagem C\n");
     printf("=====================================================\n\n");
 
     // 1. Declaração e uso básico de ponteiros
