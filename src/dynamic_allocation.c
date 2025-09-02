@@ -17,7 +17,8 @@ void aloca_array(int **arr, int tamanho) {
     }
 }
 
-int main() {
+void demo_dynamic_allocation() {
+    printf("\n--- Demo Alocacao Dinamica ---\n");
     int *vetor = NULL; // ponteiro que apontará para o array dinâmico
     int n = 5;         // tamanho do array
 
@@ -41,5 +42,5 @@ int main() {
     free(vetor);   // devolve a memória ao sistema
     vetor = NULL;  // boa prática: evitar ponteiro "solto"
 
-    return 0;
+    printf("Memoria para o vetor foi liberada.\n");
 }
