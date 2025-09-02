@@ -35,5 +35,15 @@ void demo_array_pointers() {
     ptr_char = ptr_char + 1;
     printf("   - Depois: Endereço=%p, Valor='%c'\n", (void*)ptr_char, *ptr_char);
 
+    printf("\n--- Exemplo Prático: Percorrendo um Array com um Ponteiro ---\n");
+    int numeros[] = {10, 20, 30, 15, 5, 10, 30, 11};
+    int *ptr = numeros;
+    int n = sizeof(numeros) / sizeof(numeros[0]);
+
+    printf("Conteúdo do array 'numeros':\n");
+    for (int i = 0; i < n; i++) {
+        printf("  - Endereço: %p, Valor: %d\n", (void*)(ptr + i), *(ptr + i));
+    }
+
     printf("\n----------------------------------------------------------\n\n");
 }
