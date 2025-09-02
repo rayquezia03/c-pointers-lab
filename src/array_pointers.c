@@ -8,49 +8,32 @@
  * de ponteiros para percorrer o array.
  */
 void demo_array_pointers() {
-    printf("--- 2. Relação entre Arrays e Ponteiros ---\n");
-    int arr[5] = {10, 20, 30, 40, 50};
-    int *ptr = arr; // O ponteiro 'ptr' aponta para o primeiro elemento de 'arr'
+    printf("--- 2. Aritmética de Ponteiros ---\n");
+    printf("O 'salto' na memória ao somar 1 a um ponteiro depende do seu tipo.\n");
 
-    printf("Acessando elementos do array usando o ponteiro:\n");
-    for (int i = 0; i < 5; i++) {
-        // *(ptr + i) é equivalente a arr[i]
-        printf("Elemento %d: arr[%d] = %d, *(ptr + %d) = %d\n", i, i, arr[i], i, *(ptr + i));
-    }
+    // --- Exemplo com INT  ---
+    int arr_int[2] = {15, 34};
+    int *ptr_int = arr_int;
+    printf("\n1. Ponteiro para INT (avança %zu bytes)\n", sizeof(int));
+    printf("   - Antes : Endereço=%p, Valor=%d\n", (void*)ptr_int, *ptr_int);
+    ptr_int = ptr_int + 1;
+    printf("   - Depois: Endereço=%p, Valor=%d\n", (void*)ptr_int, *ptr_int);
 
-    printf("\nEndereços dos elementos:\n");
-    for (int i = 0; i < 5; i++) {
-        printf("Endereço de arr[%d]: %p, Valor de (ptr + %d): %p\n", i, (void*)&arr[i], i, (void*)(ptr + i));
-    }
-    printf("---------------------------------------------\n\n");
-}
+    // --- Exemplo com SHORT ---
+    short arr_short[2] = {100, 200};
+    short *ptr_short = arr_short;
+    printf("\n2. Ponteiro para SHORT (avança %zu bytes)\n", sizeof(short));
+    printf("   - Antes : Endereço=%p, Valor=%d\n", (void*)ptr_short, *ptr_short);
+    ptr_short = ptr_short + 1;
+    printf("   - Depois: Endereço=%p, Valor=%d\n", (void*)ptr_short, *ptr_short);
 
-/**
- * @brief Demonstra a diferença entre 'char s[]' e 'const char *'.
- * 
- * 'char s[]' declara um array de caracteres. O conteúdo do array é
- * modificável e o ponteiro 's' em si não é um l-value (não pode ser reatribuído).
- * 
- * 'const char *p' declara um ponteiro para uma string literal constante.
- * A string em si não pode ser modificada, mas o ponteiro 'p' pode ser
- * reatribuído para apontar para outra string.
- */
-void demo_char_pointers() {
-    printf("--- 3. Diferença entre char s[] e const char * ---\n");
+    // --- Exemplo com CHAR ---
+    char arr_char[2] = {'X', 'Y'};
+    char *ptr_char = arr_char;
+    printf("\n3. Ponteiro para CHAR (avança %zu byte)\n", sizeof(char));
+    printf("   - Antes : Endereço=%p, Valor='%c'\n", (void*)ptr_char, *ptr_char);
+    ptr_char = ptr_char + 1;
+    printf("   - Depois: Endereço=%p, Valor='%c'\n", (void*)ptr_char, *ptr_char);
 
-    // char s[] é um array modificável na stack
-    char s[] = "Hello, World!";
-    printf("Array 's' (char s[]): %s\n", s);
-    s[0] = 'h'; // Modificação permitida
-    printf("Array 's' após modificação: %s\n", s);
-    // s = "new string"; // Erro de compilação: 's' não é um l-value modificável.
-
-    // const char *p é um ponteiro para uma string literal (constante)
-    const char *p = "Hello, Universe!";
-    printf("\nPonteiro 'p' (const char *p): %s\n", p);
-    // p[0] = 'h'; // Erro em tempo de execução (segmentation fault): tenta modificar memória somente leitura.
-    p = "Nova string literal"; // Permitido: o ponteiro 'p' agora aponta para outro local.
-    printf("Ponteiro 'p' após reatribuição: %s\n", p);
-
-    printf("-----------------------------------------------------\n\n");
+    printf("\n----------------------------------------------------------\n\n");
 }
