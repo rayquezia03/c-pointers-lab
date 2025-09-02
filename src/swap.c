@@ -16,18 +16,37 @@ void swap(int *a, int *b) {
     *b = temp;
 }
 
-/**
- * @brief Demonstra o uso da função swap.
- */
+void criarArray(int **arr, int tamanho) {
+    *arr = (int *) malloc(tamanho * sizeof(int));
+    if (*arr == NULL) {
+        printf("Erro ao alocar memória!\n");
+        exit(1);
+    }
+
+    for (int i = 0; i < tamanho; i++) {
+        (*arr)[i] = (i + 1) * 10;
+    }
+}
+
 void demo_swap() {
-    printf("--- 4. Passagem por Referência com swap ---\n");
-    int x = 10;
-    int y = 20;
+    printf("--- 4.1 Passagem por Referência com swap ---\n");
+    int x = 10, y = 20;
+    printf("Antes do swap: x = %d, y = %d\n", x, y);
+    swap(&x, &y);
+    printf("Depois do swap: x = %d, y = %d\n\n", x, y);
 
-    printf("Valores originais: x = %d, y = %d\n", x, y);
+    printf("--- 4.2 Passagem Ponteiro para Ponteiro ---\n");
+    int *vetor = NULL;
+    int n = 5;
 
-    swap(&x, &y); // Passamos os endereços de x e y para a função
+    criarArray(&vetor, n); // Passa o endereço do ponteiro (int**)
 
-    printf("Valores após o swap: x = %d, y = %d\n", x, y);
+    printf("Vetor alocado dinamicamente:\n");
+    for (int i = 0; i < n; i++) {
+        printf("vetor[%d] = %d\n", i, vetor[i]);
+    }
+    free(vetor);
+    printf("Memória liberada com sucesso.\n");
     printf("--------------------------------------------\n\n");
 }
+
