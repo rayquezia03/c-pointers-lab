@@ -3,6 +3,15 @@
 Este projeto contém uma série de exemplos práticos para demonstrar o uso de ponteiros em C. Cada conceito é implementado em um módulo separado e comentado para fins didáticos.
 
 ---
+## Equipe
+
+- Anderson Da Silva Passos  
+- Francisco Colatino De Lima  
+- Jônatas Duarte Vital Leite  
+- Rayane Quézia Lima Duarte  
+- Thallys Asafe Ribeiro De Alcantara  
+
+---
 
 ## 1. Conceitos Abordados
 
